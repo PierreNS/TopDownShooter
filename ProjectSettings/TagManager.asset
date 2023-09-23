@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Window
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,34 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3203124269
+    locked: 0
+  - name: Foliage
+    uniqueID: 1340998129
+    locked: 0
+  - name: Floor
+    uniqueID: 2636707889
+    locked: 0
+  - name: Characters
+    uniqueID: 3747383665
+    locked: 0
+  - name: Windows
+    uniqueID: 2122972585
+    locked: 0
+  - name: Walls
+    uniqueID: 1291197365
+    locked: 0
+  - name: Top
+    uniqueID: 659555325
+    locked: 0
+  - name: Furniture
+    uniqueID: 1344179315
+    locked: 0
+  - name: Trees
+    uniqueID: 2888859561
+    locked: 0
+  - name: UI
+    uniqueID: 2461883527
     locked: 0
