@@ -8,12 +8,18 @@ namespace TopDownShooter.Managers
     {
         public static InputManager Instance;
 
+        private Camera _camera;
+
         private Vector2 _moveDirection;
         private Vector2 _mousePosition;
+        private Vector2 _screenSpaceMousePosition;
         public Vector2 MoveDirection => _moveDirection;
         public Vector2 MousePosition => _mousePosition;
+        public Vector2 ScreenSpaceMousePosition => _screenSpaceMousePosition;
 
         public event Action RightMouseButtonClicked;
+        public event Action LeftMouseButtonClicked;
+
         private void Awake()
         {
             if (Instance == null)
@@ -23,6 +29,8 @@ namespace TopDownShooter.Managers
                 Destroy(this);
 
             Cursor.visible = false;
+
+            _camera = Camera.main;
         }
 
         public void OnMovementDirection(InputValue value)
@@ -38,6 +46,16 @@ namespace TopDownShooter.Managers
         public void OnRightMouseButton(InputValue value)
         {
             RightMouseButtonClicked?.Invoke();
+        }
+
+        private void Update()
+        {
+            if (Mouse.current.leftButton.isPressed == true)
+            {
+                LeftMouseButtonClicked?.Invoke();
+            }
+
+            _screenSpaceMousePosition = _camera.ScreenToWorldPoint(new Vector3(_mousePosition.x, _mousePosition.y, 20));
         }
     }
 }
